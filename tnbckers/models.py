@@ -1,6 +1,6 @@
-from statistics import mode
-from unicodedata import category
+from datetime import datetime
 from django.db import models
+
 
 # Create your models here.
 class User(models.Model):
