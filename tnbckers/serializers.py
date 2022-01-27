@@ -18,7 +18,7 @@ class GigSerializer(serializers.ModelSerializer):
         
         model = Gig
         fields = [
-            "pk",
+            "id",
             "sub",
             "title",
             "description",

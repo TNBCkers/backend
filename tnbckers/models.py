@@ -11,6 +11,7 @@ class User(models.Model):
 
     
 class Gig(models.Model):
+    id = models.BigAutoField(primary_key=True)
     sub = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
@@ -23,8 +24,11 @@ class Gig(models.Model):
         return f'Gig Object: {self.title}'
     
 class Rating(models.Model):
+
+    id = models.BigAutoField(primary_key=True)
     gig = models.ForeignKey(Gig, on_delete=models.CASCADE, unique=True)
     sub = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
+    message = models.CharField(max_length=255, null=True)
     value = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
 
