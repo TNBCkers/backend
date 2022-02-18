@@ -1,0 +1,29 @@
+GET http://localhost:4000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJ0aCIsImlhdCI6MTY0NDU1NTkwOSwiZXhwIjoxNjQ0NTU1OTI0fQ.d8Z70PnFSk_MqnwLbKiqVNiPD01CxEwlmYdw356uEeU
+
+###
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "username": "Arth"
+}
+
+###
+
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "token": "asd"
+}
+
+###
+
+DELETE  http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJ0aCIsImlhdCI6MTY0NDU2NDY2M30.PjVVA0EMOpumxZHLpBSSRcJNuvfDcXS_i-4pasctnOg"
+}
