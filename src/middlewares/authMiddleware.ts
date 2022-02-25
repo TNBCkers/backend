@@ -1,6 +1,6 @@
 import express from "express";
 import { JsonWebTokenError, JwtPayload, verify } from "jsonwebtoken";
-import { getTokenFromAuthorizationHeader } from "../services/authService";
+import { getTokenFromAuthorizationHeader } from "../services/auth.service";
 import { SIGNING_KEY } from "../index";
 
 const authenticateToken: express.RequestHandler = (req: any, res, next) => {

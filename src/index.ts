@@ -3,8 +3,9 @@ import { config } from "dotenv";
 config();
 import { OAuth2Client } from "google-auth-library";
 import authRouter from "./routes/auth";
-import userRouter from "./routes/user";
+import userRouter from "./routes/user.router";
 import cors from "cors";
+import { init } from "./services/database.service";
 
 export const MONGO_URI: string = process.env.MONGO_URI;
 export const SIGNING_KEY: string = process.env.SIGNING_KEY;
@@ -21,3 +22,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
+
+app.listen(PORT, async () => {
+  await init();
+});

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { getUserIdFromIdToken } from "../services/googleService";
+import { getUserIdFromIdToken } from "../services/google.service";
 import {
   generateRefreshJWT,
   generateJWT,
   generateAndDeleteTokens,
   verifyToken,
-} from "../services/authService";
+} from "../services/auth.service";
 import Token from "../models/Token/model";
 
 const router = Router();

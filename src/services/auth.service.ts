@@ -1,5 +1,5 @@
-import { JwtPayload, sign, verify } from "jsonwebtoken";
-import Token from "../models/Token/model";
+import { sign, verify } from 'jsonwebtoken';
+import Token from '../models/Token/model';
 
 export const generateJWT = async (userId: string): Promise<string> => {
   return sign(
@@ -30,7 +30,7 @@ export interface Tokens {
 export const generateAndDeleteTokens = async (
   userId: string
 ): Promise<Tokens> => {
-  await Token.deleteOne({ userId }).catch(() => console.log("Token Not Found"));
+  await Token.deleteOne({ userId }).catch(() => console.log('Token Not Found'));
 
   const refreshToken = await generateRefreshJWT(userId);
   const accessToken = await generateJWT(userId);
@@ -46,4 +46,4 @@ export const verifyToken = (token: string) => {
 };
 
 export const getTokenFromAuthorizationHeader = (headerValue: string): string =>
-  headerValue.replace("Bearer ", "");
+  headerValue.replace('Bearer ', '');
