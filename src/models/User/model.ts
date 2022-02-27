@@ -1,9 +1,9 @@
-import { model, Schema } from "mongoose";
+import { model, ObjectId, Schema, Types } from 'mongoose';
 
-export const USER_MODEL_NAME = "User";
+export const USER_MODEL_NAME = 'User';
 
 export interface UserInterface {
-  _id: string;
+  userId: ObjectId;
   name: string;
   avatar: string;
   description: string;
@@ -11,7 +11,7 @@ export interface UserInterface {
 }
 
 export const UserSchema = new Schema<UserInterface>({
-  _id: { unique: true, type: String, required: true },
+  userId: { unique: true, type: Types.ObjectId, required: true },
   name: { type: String, required: true },
   avatar: { type: String, required: true },
   description: { type: String, required: true },
