@@ -1,10 +1,10 @@
-import { model, Schema } from "mongoose";
-import { USER_MODEL_NAME } from "../User/model";
+import { model, Schema, ObjectId } from 'mongoose';
+import { USER_MODEL_NAME } from '../User/model';
 
-export const GIG_MODEL_NAME = "Gig";
+export const GIG_MODEL_NAME = 'Gig';
 
 export interface GigInterface {
-  userid: string;
+  userid: ObjectId;
   title: string;
   description: string;
   category: string;
@@ -14,7 +14,7 @@ export interface GigInterface {
 
 export const GigSchema = new Schema<GigInterface>({
   userid: {
-    type: String,
+    type: Schema.Types.ObjectId,
     ref: USER_MODEL_NAME,
     required: true,
   },

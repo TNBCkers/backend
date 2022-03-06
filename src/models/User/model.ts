@@ -3,7 +3,7 @@ import { model, ObjectId, Schema, Types } from 'mongoose';
 export const USER_MODEL_NAME = 'User';
 
 export interface UserInterface {
-  userId: ObjectId;
+  userId: string;
   name: string;
   avatar: string;
   description: string;
@@ -11,7 +11,7 @@ export interface UserInterface {
 }
 
 export const UserSchema = new Schema<UserInterface>({
-  userId: { unique: true, type: Types.ObjectId, required: true },
+  userId: { unique: true, type: String, required: true },
   name: { type: String, required: true },
   avatar: { type: String, required: true },
   description: { type: String, required: true },

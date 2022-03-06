@@ -1,14 +1,15 @@
 import { sign, verify } from 'jsonwebtoken';
 import Token from '../models/Token/model';
+import { SIGNING_KEY, REFRESH_SECRET, TOKEN_EXPIRY } from '../index';
 
 export const generateJWT = async (userId: string): Promise<string> => {
   return sign(
     {
       userId,
     },
-    process.env.AUTH_SECRET,
+    SIGNING_KEY,
     {
-      expiresIn: parseInt(process.env.TOKEN_LIFESPAN, 10),
+      expiresIn: parseInt(TOKEN_EXPIRY, 10),
     }
   );
 };
@@ -18,7 +19,7 @@ export const generateRefreshJWT = async (userId: string): Promise<string> => {
     {
       userId,
     },
-    process.env.REFRESH_SECRET
+    REFRESH_SECRET
   );
 };
 
